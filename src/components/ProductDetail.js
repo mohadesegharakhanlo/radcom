@@ -40,7 +40,7 @@ const ProductDetail = () => {
     } , [])
 
   return (
-    <Box sx={{margin:'20px' , display:'flex' , gap:'30px'}}>
+    <Box sx={{margin:'20px' , display:'flex' , gap:'30px', flexDirection : {xs:'column', sm:'column' , md:'column' , lg : 'row'}}}>
         <Box>
             <img
                 src={product?.images[0]}
@@ -76,7 +76,6 @@ const ProductDetail = () => {
             </Box>
             <Button sx={{marginTop:'25px' , backgroundColor:'#98d7c2' , color:'#000000'}} onClick={addToCart}>add to cart</Button>
         </Box>
-        
     </Box>
   )
 }

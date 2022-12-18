@@ -1,12 +1,15 @@
-import { Card, Typography , Box, Button} from '@mui/material'
-import React from 'react'
+import { Card, Typography , Box, Button , Modal} from '@mui/material'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import {addToCartAction} from '../redux/actions/addToCart'
+import {addToCartAction} from '../redux/actions/addToCart';
+import { ModalDiv , ModalBottom } from '../style/test';
+
 
 
 const ProductCard = ({title , price , image , id}) => {
+    const [openModal , setOpenModal] = useState(false)
     const dispatch = useDispatch();
     const addToCart = () => {
         const cartObj = {
@@ -17,9 +20,15 @@ const ProductCard = ({title , price , image , id}) => {
         }
         dispatch(addToCartAction(cartObj));
     }
+    const handleOpenModal = () => {
+        setOpenModal(true);
+    }
+    const handleCloseModal = () => {
+        setOpenModal(false)
+    }
   return (
-    
-     <Card sx={{width:'400px' , padding:'10px' , cursor:'pointer'}}>
+    <>
+     <Card sx={{width:'400px' , padding:'10px' , cursor:'pointer'}}  onClick={handleOpenModal} >
         <Typography sx={{padding:'10px',fontSize:'20px',textAlign:'center'}}>{title}</Typography>
         <Link style={{textDecoration: 'none'}} to={`/productdetail/${id}`}>
             <Box sx={{width:'380px' , margin:'auto'}}>
@@ -43,7 +52,23 @@ const ProductCard = ({title , price , image , id}) => {
                 add to cart
             </Button>
         </Box>
-    </Card>
+      </Card>
+      {openModal && 
+        <Modal open={openModal} onClose={handleCloseModal}>
+            <ModalDiv className=''>
+                <img
+                    src={image}
+                />
+                <ModalBottom>
+                    <Typography variant='h4'>{title}</Typography>
+                    <Button primary variant='contained'>show detail</Button>
+                </ModalBottom>
+            </ModalDiv>
+           
+        </Modal>
+        }
+    </>
+    
   )
 }
 

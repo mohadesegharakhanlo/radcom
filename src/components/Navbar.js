@@ -8,8 +8,8 @@ const Navbar = () => {
   return (
     <Box sx={{backgroundColor:'#98d7c2' , width:'100%' , height:'110px' , display:'flex' , justifyContent:'space-between' , flexDirection:'row-reverse' , gap:'30px', alignItems:'center'}}>
         <Box sx={{ display:"flex",flexDirection:'row-reverse' , gap:'30px'  , fontSize:'30px' , alignItems:'center' , marginRight:'30px'}}>
-            <Link style={{textDecoration: 'none'}} to="/cart"><p>cart</p></Link>
-            <Link style={{textDecoration: 'none'}} to="/"><p>home</p></Link>
+            <Link style={{textDecoration: 'none'}} to="/cart"><p>Cart</p></Link>
+            <Link style={{textDecoration: 'none'}} to="/"><p>Home</p></Link>
         </Box>
         <Box>
           <Typography variant='h2' sx={{padding:'20px'}}>

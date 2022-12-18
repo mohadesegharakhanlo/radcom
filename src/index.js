@@ -7,6 +7,9 @@ import store from './redux/store';
 import { Provider } from 'react-redux';
 import {BrowserRouter} from 'react-router-dom'
 import Navbar from './components/Navbar';
+import { ThemeProvider } from '@emotion/react';
+import {theme} from './style/theme';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,8 +17,10 @@ root.render(
     <React.StrictMode>
       <Provider store={store}>
         <BrowserRouter>
-          <Navbar/>
-          <App />
+          <ThemeProvider theme={theme}>
+            <Navbar/>
+            <App />
+          </ThemeProvider>
         </BrowserRouter>
       </Provider>
     </React.StrictMode>
