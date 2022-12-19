@@ -29,6 +29,7 @@ const ProductDetail = () => {
             count,
             price : product.price ,
             image : product.images[0],
+            title : product.title
         }
         dispatch(addToCartAction(cartObj));
     }

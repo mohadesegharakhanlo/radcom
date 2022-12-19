@@ -6,7 +6,19 @@ export const theme = createTheme({
             main:'#98d7c2'
         },
         error: {
-            main:'#d32f2f'
+            main:'#0f0f0f'
+        },
+        secondary : {
+            main:'#ffffff'
+        },
+        gray: {
+            main:'#e0e0e0'
+        },
+        black: {
+            main:'#00000'
+        },
+        white: {
+            main:'#ffffff'
         }
     }
 })

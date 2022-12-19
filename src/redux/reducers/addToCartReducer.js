@@ -1,7 +1,7 @@
 import {ADD_CART , REMOVE_ITEM , UPDATE_ITEM , TOTAL_PRICE} from '../constant';
 
 const initialState = {
-    cartItems : [] ,
+    cartItems : (JSON.parse(localStorage.getItem("cartItems"))) || []  ,
     totalPrice : 0 ,
 }
 

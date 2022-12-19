@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ButtonGroup } from "@mui/material";
 import { Box } from "@mui/system";
 
 export const DrawerCardBox = styled(Box)(() => ({
@@ -6,18 +7,41 @@ export const DrawerCardBox = styled(Box)(() => ({
     height:"100%",
     display:'flex',
     flexDirection:"column",
-    alignItems:'center',
-    gap:'10px',
+    
     backgroundColor:'#eeeeee',
-    borderRadius:'5px',
+    borderRadius:'30px',
 
 }))
 
-export const DrawerCardOItems = styled(Box)(() => ({
+export const DrawerCardItems = styled(Box)(() => ({
     display:'flex',
-    flexDirection:'row-reverse',
     justifyContent:'space-between',
-    width:'80%',
-    marginBottom:'1.5rem'
+    width:'90%',
+    padding:'20px',
 
 }))
+
+export const DrawerCardButton = styled('div')({
+    display:'flex',
+    flexDirection:'row',
+    gap:'10px',
+    justifyContent:'center',
+})
+
+export const DrawerImage = styled('img')(() => ({
+    width:'130px',
+    height:'130px',
+    borderRadius:"50%"
+}))
+
+export const DrawerButtonGroup = styled('div')(() => ({
+    display:'flex',
+    flexDirection:'column',
+}))
+
+export const DrawerTypography = styled('div')({
+    padding:'10px',
+    display:'flex',
+    flexDirection:'column',
+    gap:'20px'
+})

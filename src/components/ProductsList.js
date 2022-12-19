@@ -1,15 +1,21 @@
 import { Grid , Box, Drawer, Button } from '@mui/material';
-import React from 'react'
+import React , {useState} from 'react'
 import { useSelector , useDispatch} from 'react-redux'
 import ProductCard from './ProductCard';
 import { openDrawerAction } from '../redux/actions/openDrawer';
-import { DrawerBox  } from '../style/productListStyle';
+import { DrawerBox , ProductListBox , DrawerCloseButton, DrawerCartButton } from '../style/productListStyle';
 import DrawerCard from './DrawerCard';
 import { Link } from 'react-router-dom';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ReactPaginate from 'react-paginate';
 
 
 const ProductsList = () => {
     const dispatch = useDispatch()
+    const [pageNumber , setPageNumber] = useState(0);
+    const dataPerPage = 10;
+    const pagesVisited = dataPerPage * pageNumber
+    const pageCount = Math.ceil(50 / dataPerPage);
     //fetch data from redux
     const {products} = useSelector((state) => state.setProducts);
 
@@ -24,23 +30,48 @@ const ProductsList = () => {
         dispatch(openDrawerAction(false))
     }
 
+    const displayProducts = products?.slice(pagesVisited, pagesVisited + dataPerPage).map((product)=>{
+        return(
+            <Grid item xs={4} sm={4} md={4} lg={4} key={product.id} sx={{display:'flex' , justifyContent:'center'}}>
+                <ProductCard title = {product.title} price={product.price} image={product.images[0]} id={product.id}/>
+            </Grid>
+        )
+    })
+
+    const changePage = ({ selected }) => {
+        setPageNumber(selected);
+    };
+
   return (
-    <Box sx={{marginTop:'100px' ,flexGrow:1 , width:'100%' , marginBottom:'100px'}}>
-        <Grid container spacing={3} columns={{xs:4 , sm:8 , md:12 , lg:12}}>
-            {
-                products && products.map((product , index) => (
-                    <Grid item xs={4} sm={8} md={6} lg={4} key={index} sx={{display:'flex' , justifyContent:'center'}}>
-                        <ProductCard title = {product.title} price={product.price} image={product.images[0]} id={product.id}/>
-                    </Grid>
-                ))
-            }
+    <ProductListBox drawerFlag={drawerFlag}>
+        <Grid container spacing={3} columns={{xs:4 , sm:8 , md:12 , lg:16}}>
+            {displayProducts}
         </Grid>
+        <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            className="flex gap-3 width-full justify-center"
+            activeClassName='bg-gray-200 px-4'
+      />
         <Drawer 
             open={drawerFlag}
             anchor='right'
             onClose={handleCloseDrawer}
-            variant='temporary'
+            variant='persistent'
         >
+            <DrawerCloseButton>
+                <Button 
+                    color='error'
+                    variant='outline'
+                    onClick={handleCloseDrawer}
+                    endIcon={<ArrowForwardIosIcon/>}
+                    sx={{width:'90px'}}
+                >
+                close
+                </Button>
+            </DrawerCloseButton>
             <DrawerBox>
                 {
                     cartItems && cartItems.map((item) => (
@@ -49,11 +80,10 @@ const ProductsList = () => {
                         </Box>
                     ))
                 }
-
             </DrawerBox>
-            <Link to='/cart'><Button primary variant='contained'>show cart</Button></Link>
+            <DrawerCartButton><Link to='/cart'><Button primary variant='contained'>show cart</Button></Link></DrawerCartButton>
         </Drawer>
-    </Box>
+    </ProductListBox>
   )
 }
 

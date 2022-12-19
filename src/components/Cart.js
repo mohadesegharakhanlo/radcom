@@ -14,6 +14,7 @@ import { useSelector , useDispatch } from 'react-redux'
 import {removeItemAction , addToCartAction , updateItemAction } from '../redux/actions/addToCart'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Link } from 'react-router-dom'
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Cart = () => {
     //fetch cart items from redux
@@ -60,8 +61,6 @@ const Cart = () => {
     useEffect(() => {
       calculateTotalPrice()
     } , [cartItems])
-
-    console.log(totalPrice)
   return (
     <Box>
       <Typography sx={{padding:'20px'}} variant='h3'>shopping cart!!</Typography>
@@ -85,17 +84,17 @@ const Cart = () => {
                       <Link to={`/productdetail/${item.id}`}><TableCell><img src={item.image} height='150px' /></TableCell></Link>
                       <TableCell align='right'>
                         <Box sx={{display:'flex' , justifyContent:'end'}}>
-                          <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                              <Button sx={{backgroundColor:'#98d7c2' , color:'#000000'}} id='plusButton' onClick={(e) => handleButton(e , item)}>+</Button>
-                              <Button sx={{backgroundColor:'#ffffff', color:'#000000'}}>{item.count}</Button>
-                              <Button sx={{backgroundColor:'#98d7c2' , color:'#000000'}} id='minusButton' onClick={(e) => handleButton(e , item)} >-</Button>
+                          <ButtonGroup variant="contained" >
+                              <Button primary id='plusButton' onClick={(e) => handleButton(e , item)}>+</Button>
+                              <Button primary variant='outline'>{item.count}</Button>
+                              <Button primary id='minusButton' onClick={(e) => handleButton(e , item)} >-</Button>
                           </ButtonGroup>
                         </Box>
                       </TableCell>
                       <TableCell align='right'>{item.price}</TableCell>
                       <TableCell align='right'>{item.count * item.price}</TableCell>
                       <TableCell align='right'>
-                         <Button sx={{backgroundColor:'red' , color:'#ffffff'}} onClick={() => removeItem(item.id)}>x</Button>
+                         <Button color='error' variant='outline' onClick={() => removeItem(item.id)}><DeleteIcon color='error'/></Button>
                       </TableCell>
                   </TableRow>
                 ))
