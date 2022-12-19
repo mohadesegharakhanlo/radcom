@@ -28,18 +28,21 @@ const ProductCard = ({title , price , image , id}) => {
     }
   return (
     <>
-     <Card sx={{width:'400px' , padding:'10px' , cursor:'pointer'}}  onClick={handleOpenModal} >
-        <Typography sx={{padding:'10px',fontSize:'20px',textAlign:'center'}}>{title}</Typography>
-        <Link style={{textDecoration: 'none'}} to={`/productdetail/${id}`}>
-            <Box sx={{width:'380px' , margin:'auto'}}>
-                <img
-                    src={image}
-                    height='300px'
-                    width='380px'
-                />
-            </Box>
-        </Link>
-        <Typography sx={{textAlign:'center' , fontSize:'25px'}}>{price}$</Typography>
+     <Card sx={{width:'400px' , padding:'10px' , cursor:'pointer'}}   >
+        <Box onClick={handleOpenModal}>
+            <Typography sx={{padding:'10px',fontSize:'20px',textAlign:'center'}}>{title}</Typography>
+            <Link style={{textDecoration: 'none'}} to={`/productdetail/${id}`}>
+                <Box sx={{width:'380px' , margin:'auto'}}>
+                    <img
+                        src={image}
+                        height='300px'
+                        width='380px'
+                    />
+                </Box>
+            </Link>
+            <Typography sx={{textAlign:'center' , fontSize:'25px'}}>{price}$</Typography>
+        </Box>
+        
         <Box sx={{width:'400px' ,display:'flex' , justifyContent:'center' , marginTop:'15px' , marginBottom:'10px'}}>
             <Button sx={{
                 backgroundColor:'#98d7c2',
