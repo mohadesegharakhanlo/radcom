@@ -9,6 +9,8 @@ const Navbar = () => {
         <Box sx={{ display:"flex",flexDirection:'row-reverse' , gap:'30px'  , fontSize:'30px' , alignItems:'center' , marginRight:'30px'}}>
           <Link style={{textDecoration: 'none'}} to="/"><Button color='secondary' variant='contained' sx={{fontSize:'18px'}}>Home</Button></Link>
           <Link to="/cart"><Button color='secondary' variant='contained'  sx={{fontSize:'18px'}}>Cart</Button></Link>
+          <Link to="/newtask"><Button color='secondary' variant='contained'  sx={{fontSize:'18px'}}>new task</Button></Link>
+          <Link to="/images"><Button color='secondary' variant='contained'  sx={{fontSize:'18px'}}>images</Button></Link>
         </Box>
         <Box>
           <Typography variant='h2' sx={{padding:'20px', color:'white'}} >

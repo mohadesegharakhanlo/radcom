@@ -50,7 +50,7 @@ const ProductCard = ({title , price , image , id}) => {
         </Typography>
         <Box sx={{width:'90%' ,display:'flex' , justifyContent:'space-between' , marginTop:'15px' , marginBottom:'10px' , padding:'10px'}}>
             <Box>
-                <Typography color='gray' >price : </Typography>
+                <Typography color='gray'>price : </Typography>
                 <Typography variant='h5'>{price}$</Typography>
             </Box>
             <Button 

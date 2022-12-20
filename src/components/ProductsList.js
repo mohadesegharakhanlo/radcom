@@ -13,7 +13,7 @@ import ReactPaginate from 'react-paginate';
 const ProductsList = () => {
     const dispatch = useDispatch()
     const [pageNumber , setPageNumber] = useState(0);
-    const dataPerPage = 10;
+    const dataPerPage = 12;
     const pagesVisited = dataPerPage * pageNumber
     const pageCount = Math.ceil(50 / dataPerPage);
     //fetch data from redux
