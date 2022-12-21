@@ -4,7 +4,7 @@ import React from 'react'
 const Images = () => {
   const imagesNumber = [1 , 2 , 3, 4 , 5 ,6];
   return (
-    <div className='container'>
+    <div className='images-container'>
       <div className='image-wrap'>
         <Grid container spacing={3} columns={12}>
           {
