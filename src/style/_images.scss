@@ -1,0 +1,171 @@
+.container{
+    width: 100%;
+    height: 80vh;
+    background-color: pink;
+    @include flex(center , center , row);
+    .image-wrap{
+        width: 430px;
+        rotate: -45deg;
+        .image-wrap-div-1{
+           width: 200px;
+           height: 200px;
+           @include flex(flex-end , flex-end , row);
+            .image{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            .image::before{
+                content: "";
+                position: absolute;
+                background-image: url("../images/book.jpg");
+                background-size: cover;
+                background-position: center;
+                width:150%;
+                height: 150%;
+                top: -20%;
+                left: -25%;
+                transform: rotate(45deg);
+            }
+            
+        }
+        .image-wrap-div-2{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            @include flex(flex-end , flex-start , row);
+            .image{
+                width: 50%;
+                height: 50%;
+                position: relative;
+                overflow: hidden;
+            }
+            .image::before{
+                content: "";
+                position: absolute;
+                background-image: url("../images/book.jpg");
+                background-size: cover;
+                background-position: center;
+                width:150%;
+                height: 150%;
+                top: -20%;
+                left: -25%;
+                transform: rotate(45deg);
+            
+            }
+           
+         }
+         
+         .image-wrap-div-3{
+            width: 200px;
+            height: 200px;
+            @include flex(flex-start , flex-end , row);
+            position: relative;
+            overflow: hidden;
+            .image{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            .image::before{
+                content: "";
+                position: absolute;
+                background-image: url("../images/book.jpg");
+                background-size: cover;
+                background-position: center;
+                width:150%;
+                height: 150%;
+                top: -20%;
+                left: -25%;
+                transform: rotate(45deg);
+            
+            }
+            
+         }
+         
+         .image-wrap-div-4{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            .image{
+                width: 100%;
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            .image::before{
+                content: "";
+                position: absolute;
+                background-image: url("../images/book.jpg");
+                background-size: cover;
+                background-position: center;
+                width:150%;
+                height: 150%;
+                top: -20%;
+                left: -25%;
+                transform: rotate(45deg);
+            
+            }
+         }
+        
+        }
+         .image-wrap-div-5{
+            @include flex(flex-start , flex-end , row);
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            .image{
+                width: 50%;
+                height: 50%;
+                position: relative;
+                overflow: hidden;
+            }
+            .image::before{
+                content: "";
+                position: absolute;
+                background-image: url("../images/book.jpg");
+                background-size: cover;
+                background-position: center;
+                width:150%;
+                height: 150%;
+                top: -20%;
+                left: -25%;
+                transform: rotate(45deg);
+            
+            }
+         }
+        
+         .image-wrap-div-6{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            .image{
+                width: 50%;
+                height: 50%;
+                position: relative;
+                overflow: hidden;
+            }
+            .image::before{
+                content: "";
+                position: absolute;
+                background-image: url("../images/book.jpg");
+                background-size: cover;
+                background-position: center;
+                width:150%;
+                height: 150%;
+                top: -20%;
+                left: -25%;
+                transform: rotate(45deg);
+            
+            }
+         }
+        
+    
+    
+}
